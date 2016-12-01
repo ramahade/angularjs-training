@@ -1,0 +1,114 @@
+/**
+ * Imports only the less files dealing with features we are using from Bootstrap
+ */
+
+@bootstap-base-path: '../../vendor/bootstrap/less';
+
+// Core variables and mixins
+@import "@{bootstap-base-path}/variables.less";
+@import "@{bootstap-base-path}/mixins.less";
+
+// Reset and dependencies
+@import "@{bootstap-base-path}/normalize.less";
+@import "@{bootstap-base-path}/print.less";
+//@import "glyphicons.less";
+
+// Core CSS
+@import "@{bootstap-base-path}/scaffolding.less";
+@import "@{bootstap-base-path}/type.less";
+@import "@{bootstap-base-path}/code.less";
+@import "@{bootstap-base-path}/grid.less";
+//@import "tables.less";
+@import "@{bootstap-base-path}/forms.less";
+@import "@{bootstap-base-path}/buttons.less";
+
+// Components
+//@import "component-animations.less";
+//@import "dropdowns.less";
+//@import "button-groups.less";
+@import "@{bootstap-base-path}/input-groups.less";
+//@import "navs.less";
+//@import "navbar.less";
+//@import "breadcrumbs.less";
+//@import "pagination.less";
+//@import "pager.less";
+@import "@{bootstap-base-path}/labels.less";
+//@import "badges.less";
+//@import "jumbotron.less";
+//@import "thumbnails.less";
+@import "@{bootstap-base-path}/alerts.less";
+//@import "progress-bars.less";
+//@import "media.less";
+//@import "list-group.less";
+@import "@{bootstap-base-path}/panels.less";
+//@import "responsive-embed.less";
+//@import "wells.less";
+@import "@{bootstap-base-path}/close.less";
+
+// Components w/ JavaScript
+@import "@{bootstap-base-path}/modals.less";
+//@import "tooltip.less";
+//@import "popovers.less";
+//@import "carousel.less";
+
+// Utility classes
+@import "@{bootstap-base-path}/utilities.less";
+@import "@{bootstap-base-path}/responsive-utilities.less";
+
+//----------------------------------------------------------------------------------------------------------------------
+@import 'variables.less';
+@import 'mixins.less';
+/**
+* Here we override the bootstrap z-index master list to match our conventions. Using a mixin hack to avoid typing in the
+* values as numbers.
+* Refer: https://github.com/less/less.js/issues/538#issuecomment-31346194
+* https://gist.github.com/seven-phases-max/ecbb4cd34271d71b45fa#file-538-mac-less
+*/
+@zindex-navbar: @or-zindex-navbar;
+.zindex-navbar {
+  @or-zindex-navbar: @zindex;
+  .GetZIndexValue("navigation");
+}
+.zindex-navbar;
+
+@zindex-dropdown: @or-zindex-dropdown;
+.zindex-dropdown {
+  @or-zindex-dropdown: @zindex;
+  .GetZIndexValue("navigation");
+}
+.zindex-dropdown;
+
+@zindex-popover: @or-zindex-popover;
+.zindex-popover {
+  @or-zindex-popover: @zindex;
+  .GetZIndexValue("tooltip");
+}
+.zindex-popover;
+
+@zindex-tooltip: @or-zindex-tooltip;
+.zindex-tooltip {
+  @or-zindex-tooltip: @zindex;
+  .GetZIndexValue("tooltip");
+}
+.zindex-tooltip;
+
+@zindex-navbar-fixed: @or-zindex-navbar-fixed;
+.zindex-navbar-fixed {
+  @or-zindex-navbar-fixed: @zindex;
+  .GetZIndexValue("menu");
+}
+.zindex-navbar-fixed;
+
+@zindex-modal-background: @or-zindex-modal-background;
+.zindex-modal-background {
+  @or-zindex-modal-background: @zindex;
+  .GetZIndexValue("modal-bg");
+}
+.zindex-modal-background;
+
+@zindex-modal: @or-zindex-modal;
+.zindex-modal {
+  @or-zindex-modal: @zindex;
+  .GetZIndexValue("modal");
+}
+.zindex-modal;

@@ -1,0 +1,40 @@
+@import '../../vendor/bootstrap/less/variables.less';
+/**
+ * These are the variables used throughout the application. This is where
+ * overwrites that are not specific to components should be maintained.
+ */
+
+/**
+* Colors
+*/
+//@body-color: #495e71;
+@footer-bgcolor: #f5f5f5;
+@font-color: #333;
+@heading-color: #243949;
+
+/**
+* Z-index master list
+* The master list of z-index levels which will be used to generate the z-indexes used across the application.
+* Advantage of such an approach is that newer values can be inserted without going through the pain of calculating
+* z-index values again.
+* Supported values:
+* Example usage: .GenerateZIndex("menu");
+* "base" : The base z-index
+* "navigation" : Navigation buttons, header etc.
+* "menu", Menu, fixed header etc.
+* "overlay" :  Layer overlays like tile overlay
+* "modal-bg" :  Modal BG
+* "modal" :  Modals
+* "tooltip" :  Tooltips, popovers etc. which need to show up on even overlays
+* "alert" :  Alert messages
+* "draggable" : Draggable components
+*/
+@z-index-order: "base",
+"navigation",
+"overlay",
+"menu",
+"modal-bg",
+"modal",
+"tooltip",
+"alert",
+"draggable";

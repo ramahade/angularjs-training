@@ -1,0 +1,76 @@
+@import '../../vendor/bootstrap/less/mixins.less';
+@import 'variables.less';
+
+/**
+* Mixin to position an element absolutely to cover the entire container
+*/
+.Overlay() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+* Mixin to generate z-index css style statement based on order of z-index elements provided in the z-index-order array.
+* Uses the .GetZIndexValue() mixin to get the actual value.
+* NOTE:Having them in separate mixins so that the core mixin can be used in bootstrap z-index list overriding
+*/
+.GenerateZIndex(@elementName) {
+  .GetZIndexValue(@elementName);
+  z-index: @zindex;
+}
+
+/**
+* NOTE: Please do not use this directly. Use .GenerateZIndex() instead. This is for internal use.
+* Mixin to generate the z-index numeric value based on order of z-index elements provided in the z-index-order array.
+* Stores the value in a variable named @zindex so that it can be used by callers using the mixin as function technique.
+*
+*/
+.GetZIndexValue(@elementName) {
+  // Next 3 lines are the Less equivalent of for loop. We need to call same function recursively. It will not
+  //iterate by itself.
+  .loop(@elementName, @counter) when (@counter > 0) {
+    //What to do in the loop
+    .pickIndex(@elementName, @counter);
+
+    .loop(@elementName, @counter - 1); //Next iteration
+  }
+  //Invoke the loop
+  .loop(@elementName, length(@z-index-order));
+
+  //Add a z-index property with a multiplier factor of 100
+  .pickIndex(@elementName, @counter) when (extract(@z-index-order, @counter) = @elementName) {
+    @zindex: (@counter - 1) * 100;
+  }
+}
+
+/**
+* Mixin to set @property to 100 percent viewport height. Defaults to height property.
+*/
+.viewportHeight(@property: height) {
+    @{property}: 100vh;
+  /*The below are iOS 7 specific hacks to set height which is not supported by that OS*/
+  /**
+  * iPad with portrait orientation.
+  */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      @{property}: 1024px;
+  }
+
+  /**
+   * iPad with landscape orientation.
+   */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+      @{property}: 768px;
+  }
+
+  /**
+   * iPhone 5
+   * You can also target devices with aspect ratio.
+   */
+  @media screen and (device-aspect-ratio: 40/71) {
+      @{property}: 500px;
+  }
+}

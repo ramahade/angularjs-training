@@ -1,0 +1,32 @@
+@import "mixins";
+/**
+ * These are styles which will be applied across the application.
+ */
+// Body
+/*Style to set the height of the body to 100% of available height*/
+html {
+  .viewportHeight();
+}
+
+/*Style to disable outline for all links*/
+a {
+  &:focus {
+    outline: 0;
+  }
+}
+
+a {
+  /*Style for disabled links*/
+  &.disabled {
+    cursor: default;
+    text-decoration: none;
+    &, & div, & span {
+      opacity: 0.5;
+    }
+  }
+
+  /*Style for links with no Underline*/
+  &.noUnderline {
+    text-decoration: none;
+  }
+}

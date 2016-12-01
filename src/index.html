@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="training.angularjs" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="author" content="Rajesh M">
+    <meta name="description"
+          content="AngularJS Training Project"/>
+
+    <base href="/">
+
+    <title ng-bind="pageTitle">AngularJS Training Project"</title>
+
+    <!-- Async loading compiled CSS -->
+    <script id="cssloader">
+        !function(e){"use strict";var n=function(n,t,i){function o(e){return r.body?e():void setTimeout(function(){o(e)})}var d,r=e.document,a=r.createElement("link"),l=i||"all";if(t)d=t;else{var f=(r.body||r.getElementsByTagName("head")[0]).childNodes;d=f[f.length-1]}var s=r.styleSheets;a.rel="stylesheet",a.href=n,a.media="only x",o(function(){d.parentNode.insertBefore(a,t?d:d.nextSibling)});var u=function(e){for(var n=a.href,t=s.length;t--;)if(s[t].href===n)return e();setTimeout(function(){u(e)})};return a.addEventListener&&a.addEventListener("load",function(){this.media=l}),a.onloadcssdefined=u,u(function(){a.media!==l&&(a.media=l)}),a};"undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this);
+        <% styles.forEach(function (file) { %>
+            window.loadCSS('<%= file %>', document.getElementById('cssloader'));
+        <% });%>
+    </script>
+</head>
+<body>
+
+<div ui-view="main"></div>
+
+<!-- compiled JavaScript -->
+<% scripts.forEach(function (file) { %>
+    <script type = "text/javascript" defer src = "<%= file %>" ></script>
+<% }); %>
+</body>
+</html>
