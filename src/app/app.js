@@ -3,17 +3,16 @@
  */
 (function () {
     "use strict";
-    angular.module("training.exercise", [
+    angular.module("training.angularjs", [
             "templates-app",
             "templates-common",
             "ui.router",
             "ui.bootstrap"
         ])
-        .controller("appController", [
+        .controller("AppController", [
             "$scope",
-            "$injector",
-            function($scope, $injector){
+            function($scope){
 
-	    }
+	        }
         ]);
 })();
