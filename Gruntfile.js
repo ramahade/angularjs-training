@@ -429,7 +429,7 @@
                  */
                 jssrc: {
                     files: ['<%= app_files.js %>'],
-                    tasks: ['jshint:src', 'karma:unit:run', 'copy:build_appjs', 'preprocess:js']
+                    tasks: ['jshint:src', 'karma:unit:run', 'copy:build_appjs']
                 },
                 /**
                  * When assets are changed, copy them. Note that this will *not* copy new
@@ -440,12 +440,11 @@
                     tasks: ['copy:build_app_assets', 'copy:build_vendor_assets']
                 },
                 /**
-                 * When index.html changes, we need to compile it. preprocess for html has to run after compile because
-                 * compile copies the original file to dest folder.
+                 * When index.html changes, we need to compile it.
                  */
                 html: {
                     files: ['<%= app_files.html %>'],
-                    tasks: ['index:build', 'preprocess:build_html']
+                    tasks: ['index:build']
                 },
                 /**
                  * When our templates change, we only rewrite the template cache.
@@ -471,13 +470,6 @@
                     options: {
                         livereload: false
                     }
-                },
-                /**
-                 * When any file in the build_dir changes, copy them to the tomcat hot-deploy directory
-                 */
-                hotdeploy: {
-                    files: ['<%= build_dir %>/**'],
-                    tasks: ['copyto:tomcat']
                 }
             },
             'http-server': {

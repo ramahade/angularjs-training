@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="training.angularjs" ng-controller="appController">
+<html ng-app="training.angularjs" ng-controller="AppController as app">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 
     <base href="/">
 
-    <title ng-bind="pageTitle">AngularJS Training Project"</title>
+    <title>AngularJS Training Project"</title>
 
     <!-- Async loading compiled CSS -->
     <script id="cssloader">
@@ -24,6 +24,8 @@
 <body>
 
 <div ui-view="main"></div>
+
+
 
 <!-- compiled JavaScript -->
 <% scripts.forEach(function (file) { %>
