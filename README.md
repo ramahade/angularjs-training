@@ -7,6 +7,7 @@
 #### Set-up and download project dependencies
 ###### The project build dependencies will be downloaded and organized by running the below commands
 ```
+npm install bower grunt grunt-cli -g
 npm install
 bower install
 ```
