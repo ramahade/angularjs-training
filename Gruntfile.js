@@ -485,7 +485,7 @@
                     // only be available on that ip.
                     // Specify "0.0.0.0" to be available everywhere
                     host: '0.0.0.0',
-                    cache: 20,
+                    cache: 10,
                     showDir: true,
                     autoIndex: true,
                     // server default file extension
@@ -506,8 +506,14 @@
          * before watching for changes.
          */
         grunt.renameTask('watch', 'delta');
-
         grunt.registerTask('watch', ['build', 'karma:unit', 'delta']);
+
+        /**
+         * This runs a server on http://localhost:8080 and serves the artifacts built
+         * by `build`.
+         * Ideally use it with `grunt watch` to test dev builds quickly.
+         */
+        grunt.registerTask('serve', ['http-server:dev']);
 
         /**
          * The default task is to build and compile.

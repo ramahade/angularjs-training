@@ -23,6 +23,6 @@ For production builds, which will minify all the css, html and js files , please
 ###### For development builds, the project comes with its own bundled http-server feature. This will help in testing and debugging UI code rapidly.
 After running either `grunt build` or `grunt watch`, run:
 ```
-grunt http-server:dev
+grunt serve
 ```
 The project will be available @ [http://localhost:8080](http://localhost:8080)
