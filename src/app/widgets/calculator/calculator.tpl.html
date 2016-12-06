@@ -4,9 +4,12 @@
     <h3>{{::calculator.title}}</h3>
     <div class="row">
         <div class="col-xs-12">
-            <form id="angular-calculator" name="angular-calculator" class="form-inline">
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Left"
+            <form id="calculatorForm" name="calculatorForm" class="form-inline" novalidate>
+                <div class="form-group"
+                     ng-class="{'has-error':calculatorForm.$invalid && calculatorForm.left.$touched && calculatorForm.left.$invalid}">
+                    <input class="form-control" name="left" type="text" placeholder="Left"
+                           ng-required="true"
+                           ng-pattern="/^[0-9]+$/"
                            ng-model="calculator.left"/>
                 </div>
                 <div class="form-group">
@@ -15,8 +18,11 @@
                             ng-options="operator for operator in ['+', '-', '*', '/']">
                     </select>
                 </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Right"
+                <div class="form-group"
+                     ng-class="{'has-error':calculatorForm.$invalid && calculatorForm.right.$touched && calculatorForm.right.$invalid}">
+                    <input class="form-control" name="right" type="text" placeholder="Right"
+                           ng-required="true"
+                           ng-pattern="/^[0-9]+$/"
                            ng-model="calculator.right"/>
                 </div>
                 <div class="form-group">
