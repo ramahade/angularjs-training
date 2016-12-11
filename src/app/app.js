@@ -9,12 +9,16 @@
         "training.angularjs.calculator",
         "ui.router",
         "ui.bootstrap"
-    ]).controller("AppController", ["$scope", function ($scope) {
+    ])
+        /**
+         * An application level controller for holding any application level API
+         */
+        .controller("AppController", ["$scope", function ($scope) {
 
-    }])
-    /**
-     * Controller for calculator widget.
-     */
+        }])
+        /**
+         * Controller for calculator widget.
+         */
         .controller("CalculatorController", [
             function () {
                 var me = this;
@@ -63,7 +67,7 @@
                 /**
                  * Populate the model with a greeting
                  */
-                function populateModel(){
+                function populateModel() {
                     $log.info("populating model");
                     me.greeting = "Hello Folks!";
                 }
@@ -71,7 +75,7 @@
                 /**
                  * Cleans up any timeouts or listeners left behind
                  */
-                function cleanUp(){
+                function cleanUp() {
                     $log.info("cleanup");
                     $timeout.cancel(timeoutPromise);
                 }
