@@ -7,6 +7,7 @@
         "templates-app",
         "templates-common",
         "training.angularjs.calculator",
+        "training.angularjs.controllerSamples",
         "ui.router",
         "ui.bootstrap"
     ])
@@ -68,7 +69,7 @@
                  * Populate the model with a greeting
                  */
                 function populateModel() {
-                    $log.info("populating model");
+                    $log.debug("populating model");
                     me.greeting = "Hello Folks!";
                 }
 
@@ -76,7 +77,7 @@
                  * Cleans up any timeouts or listeners left behind
                  */
                 function cleanUp() {
-                    $log.info("cleanup");
+                    $log.debug("cleanup");
                     $timeout.cancel(timeoutPromise);
                 }
             }
