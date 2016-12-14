@@ -11,6 +11,16 @@
     function EntrySinkController(entryStore) {
         var me = this;
         me.entries = entryStore.getEntries();
+        me.clickerThresholdExceeded = false;
+
+        // listenToClicker();
+        ////////////////////////////////////
+
+        /*function listenToClicker(){
+            $rootScope.$on('clicker.thresholdExceeded.click', function(eventObj){
+                me.clickerThresholdExceeded = true;
+            });
+        }*/
     }
 })();
 

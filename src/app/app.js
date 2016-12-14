@@ -9,6 +9,7 @@
         "training.angularjs.calculator",
         "training.angularjs.controllerSamples",
         "training.angularjs.exercise01",
+        "training.angularjs.watcherSamples",
         "ui.router",
         "ui.bootstrap"
     ])
