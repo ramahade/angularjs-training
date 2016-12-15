@@ -6,21 +6,23 @@
 
     angular
         .module('training.angularjs.exercise01.entrySink', ['training.angularjs.exercise01.entryStore'])
-        .controller('EntrySinkController', ["entryStore", EntrySinkController]);
+        .controller('EntrySinkController', ["entryStore", "$scope", "$rootScope", EntrySinkController]);
 
-    function EntrySinkController(entryStore) {
+    function EntrySinkController(entryStore, $scope, $rootScope) {
         var me = this;
         me.entries = entryStore.getEntries();
         me.clickerThresholdExceeded = false;
 
-        // listenToClicker();
+        listenToClicker();
         ////////////////////////////////////
 
-        /*function listenToClicker(){
-            $rootScope.$on('clicker.thresholdExceeded.click', function(eventObj){
+        function listenToClicker(){
+            var dereg = $rootScope.$on('clicker.thresholdExceeded.click', function(eventObj){
                 me.clickerThresholdExceeded = true;
+                entryStore.getUsers();
             });
-        }*/
+            $scope.$on('$destroy', dereg);
+        }
     }
 })();
 

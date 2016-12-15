@@ -6,9 +6,9 @@
 
     angular
         .module('training.angularjs.exercise01.entryStore', [])
-        .service('entryStore', [EntryStore]);
+        .service('entryStore', ['$http', '$log', EntryStore]);
 
-    function EntryStore() {
+    function EntryStore($http, $log) {
         var me = this, store = [];
         me.add = add;
         me.getEntries = getEntries;

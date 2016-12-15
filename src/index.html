@@ -79,8 +79,9 @@
                     <div class="panel-heading">
                         List those entries here
                     </div>
-                    <div class="panel-body">
-                        <ul class="list-group" ng-controller="EntrySinkController as entrySink">
+                    <div class="panel-body" ng-controller="EntrySinkController as entrySink">
+                        <div ng-show="entrySink.clickerThresholdExceeded">Clicker Threshold Exceeded</div>
+                        <ul class="list-group">
                             <li class="list-group-item" ng-repeat="entry in entrySink.entries">{{entry}}</li>
                         </ul>
                     </div>
