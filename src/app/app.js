@@ -10,6 +10,7 @@
         "training.angularjs.controllerSamples",
         "training.angularjs.exercise01",
         "training.angularjs.watcherSamples",
+        "training.angularjs.exercise02",
         "ui.router",
         "ui.bootstrap"
     ])
