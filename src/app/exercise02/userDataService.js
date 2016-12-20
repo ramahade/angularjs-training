@@ -10,10 +10,11 @@
 
         //////////////////////////
         function getAll() {
-            return $http.get('https://jsonplaceholder.typicode.com/users')
-                .then(function success(response) {
-                    return response.data;
-                });
+            return $http.get('https://jsonplaceholder.typicode.com/users', {
+                cache: false
+            }).then(function success(response) {
+                return response.data;
+            });
         }
     }
 }());

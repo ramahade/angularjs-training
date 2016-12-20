@@ -18,7 +18,9 @@
          * An application level controller for holding any application level API
          */
         .controller("AppController", ["$scope", function ($scope) {
-
+            var me = this;
+            //Initializing number of users to be fetched to 5
+            me.noOfUsers = 5;
         }])
         /**
          * Controller for calculator widget.
